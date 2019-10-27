@@ -1,0 +1,6 @@
+Yes, L is a context-free language. I will give a context-free grammar G that generates it:
+
+S -> ML
+M -> 0M2 | N
+N -> epsilon | 1N
+L -> 2 | 2L

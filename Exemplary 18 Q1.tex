@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+No, L is not context-free. Assume for a contradiction that it is.
+By the pumping lemma for context-free languages, L has a pumping length $p$.
+Let $w \in L$ be $a^pb^{2p}a^p$. Clearly, $|w| \geq p$.
+By the pumping lemma, $w$ can be split into $uvxyz$ such that $|vy| > 0$, $|vxy| \leq p$ and $uv^ixy^iz \in L$ for any non-negative integer $i$.
+Use case distinction to show that this is impossible.\\
+Case $\#_a(vy) = \#_b(vy)$:\\
+Since there are $2p$ b's in the middle of $w$ and $|vxy| \leq p$, $vy$ can't span a's on both sides of the b's.
+So taking $i = 0$ will result in the string $uxz$, which will either start with less than $p$ a's or end with less than $p$ a's and 
+thus can't start with the same amount of a's as it ends with, and thereby can't be in L, which is a contradiction.\\
+Case $\#_a(vy) \neq \#_b(vy)$:\\
+Taking $i = 0$ will result in the string $uxz$, which can't have the same number of a's and b's since $w$ had the same number of a's and b's
+and $vy$ did not. So $uxz$ is not in L, which is a contradiction.\\
+Clearly, these were all cases and both lead to a contradiction, so the assumption that L is context-free must have been false.
+Thus L is not a context-free language.
+
+\end{document}

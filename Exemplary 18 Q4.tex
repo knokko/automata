@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+Let $<S,t>$ be an arbitrary input for the SUBSET-SUM problem.
+Let $U = S \cup \{sum(S) - 2t\}$ where sum(S) denotes the sum over the elements of $S$.
+Then $<S,t> \in$ SUBSET-SUM iff $<U> \in$ SET-PARTITION and thus SUBSET-SUM $\leq_P$ SET-PARTITION.\\
+Trivially, this reduction will run in polynomial time as it does nothing more than adding a single element to a set.
+I will prove that this reduction also works by proving both directions separately. 
+First I will proof $<S,t> \in$ SUBSET-SUM $\rightarrow$ $<U> \in$ SET-PARTITION:\\
+Let $S'$ be the subset of $S$ such that $\sum_{x \in S'}x = t$. 
+Then let $U'$ be $S' \cup \{sum(S) - 2t\}$ so $U / U'$ will be $S / S'$.
+Since the sum over $S'$ equals $t$, the sum over $U'$ will be $t + sum(S) - 2t = sum(S) - t$.
+Also, the sum over $U / U' = S / S'$ equals $sum(S) - t$. Thus indeed $<S,t> \in$ SUBSET-SUM $\rightarrow$ $<U> \in$ SET-PARTITION.\\
+Now the other direction: $<U> \in$ SET-PARTITION $\rightarrow$ $<S,t> \in$ SUBSET-SUM:\\
+Let $U'$ be a subset of $U$ such that $\sum_{x \in U'}x = \sum_{x \in U / U'}x$ and $sum(S) - 2t \in U'$.
+Such a $U'$ must exist because $<U> \in$ SET-PARTITION and $sum(S) - 2t \in S$.
+Since the sum over $U'$ is the same as the sum over $U / U'$, it must be that the sum over $U'$ is half of the sum over $U$.
+So the total sum over $U$ is $2*sum(S) - 2t$ so the sum over $U'$ is $sum(S) - t$.
+Let $S'$ be $U' / \{sum(S) - 2t\}$. Then the sum over $S'$ will be $sum(S) - t - (sum(S) - 2t) = sum(S) - t - sum(S) + 2t = t$.
+Since $S'$ contains only elements of $S$ (so $S' \subseteq S$) and the sum over $S'$ equals $t$, it holds that indeed $<S,t> \in$ SUBSET-SUM.\\
+With both directions of the iff proven, it indeed holds that $<S,t> \in$ SUBSET-SUM iff $<U> \in$ SET-PARTITION and thus SUBSET-SUM $\leq_P$ SET-PARTITION.
+
+\end{document}

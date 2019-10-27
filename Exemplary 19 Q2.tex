@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+Assume for a contradiction that L is context-free. 
+Then, by the pumping lemma for context-free languages, there exists a pumping length $p$. 
+Let $w \in L$ be $a^{p+1}b^pc^{p+1}$. Clearly, $|w| \geq p$.
+By the pumping lemma, $w$ can be split into $uvxyz$ such that $|vxy| \leq p$, $|vy| > 0$ and  $uv^ixy^iz \in L$ for any non-negative integer $i$.
+Use case distinction on $vy$ to show that this is not possible:\\
+Case $vy$ contains only a's:\\
+Taking $i = 0$ will result in $uv^0xy^0z = uxz$ which will have less than $p + 1$ a's, thus at most $p$ a's.
+However, the number of a's has to be greater than the number of b's, but there are $p$ b's in $uxz$.\\
+Case $vy$ contains only b's:\\
+Taking $i = 2$ will result in $uv^2xy^2z = uvvxyyz$ which will have more than $p$ b's and thus at least $p + 1$ b's.
+However, the number of a's ($p + 1$) must be greater than the number of b's.\\
+Case $vy$ contains only c's:\\
+Taking $i = 0$ will result in $uv^0xy^0z = uxz$ which will have less than $p + 1$ c's, thus at most $p$ c's.
+However, the number of c's has to be greater than the number of b's, but there are $p$ b's in $uxz$.\\
+Case $vy$ contains multiple different characters:\\
+Taking $i = 2$ will cause $uvvxyyz$ to be out of order, so it can't be in L.\\
+Since there are only 3 possible characters and $|vy| > 0$, these were all cases.
+Since each case lead to a contradiction, the assumption that L is context-free must have been false.
+Thus L is not context-free.
+
+\end{document}

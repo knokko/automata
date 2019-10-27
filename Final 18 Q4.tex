@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\section{a}
+To show that A $\leq_P$ B, one gives a function $f$ that always runs in polynomial time 
+such that $w \in A$ iff $f(w) \in B$ for any $w \in \sum*$.
+
+\section{b}
+For this exercise, I will consider the set of all cnf formulas as the alphabet.
+Define $f$ in the following way:\\
+On input $\phi$:\\
+Add a fresh variable $y$.\\
+Add two new clauses to $\phi$: 1 containing only literal $y$ and 1 containing only literal $\bar{y}$.\\
+Return the modified $\phi$.\\
+Trivially, $f$ will run in polynomial time. 
+To prove that this reduction works, consider an arbitrary cnf formula $\phi$ and its corresponding $f(\phi)$.
+For any assignment of truth values, $f(\phi)$ will have one extra clause evaluating to true and one extra clause evaluating to false,
+namely the $y$ and $\bar{y}$ clause (not necessarily respectively). 
+So $f(\phi)$ will always have at least 1 clause evaluating to false and it will have exactly 1 clause evaluating to false iff $\phi$ has none.\\
+This proves that the reduction works and thus cSAT $\leq_P$ PREsSAT.
+
+\end{document}

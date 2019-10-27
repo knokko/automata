@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+Let 3cnf formula $\phi = \wedge_{i = 1}^m \phi_i$ over the variables $v_1, ..., v_n$.
+I will construct a SOLITAIRE board $B$ such that $B$ is winning iff $\phi$ is satisfiable.\\
+$B$ will be an $m$ x $n$ board ($m$ rows and $n$ columns) with the following configuration: 
+For every slot ($x$, $y$) on $B$ with $1 \leq x \leq m$ and $1 \leq y \leq n$:\\
+-Iff clause $\phi_x$ contains literal $v_y$ and not $\bar{v_y}$, the slot will start with a blue stone.\\
+-Iff clause $\phi_x$ contains literal $\bar{v_y}$ and not $v_y$, the slot will start with a red stone.\\
+-Iff clause $\phi_x$ contains neither $v_y$ nor $\bar{v_y}$, the slot will start empty.\\
+-Iff clause $\phi_x$ contains both $v_y$ and $\bar{v_y}$, row $x$ will be removed from $B$.\\
+To prove that indeed $\phi$ is satisfiable iff $B$ is winning, consider what it means to reach an end configuration.
+In an end configuration, all rows have at least 1 stone, which means that at least 1 literal in its corresponding clause evaluates to true.
+Also, every column contains at most 1 color. If that color is blue, the corresponding variable should be set to true.
+If that color is red, the corresponding variable should be set to false. If the column doesn't contain any stones,
+the truth value of the variable doesn't matter. So if a column contains at most 1 color, 
+the corresponding variable needs only a single truth value, which can be assigned and thus this leads to a possible satisfying assignment.\\
+If $B$ is not winning, it is not possible to reach any end configuration thus it is not possible to reach any satisfying assignment and
+thus $\phi$ is not satisfiable. The construction of $B$ should take O($m * n$) time, which is polynomial time. (It doesn't matter which 
+of $m$ and $n$ you consider as variable and which as constant).
+
+\end{document}

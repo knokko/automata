@@ -1,0 +1,4 @@
+a) The states 0 and 2 are equivalent. 
+See Exemplary 19 Q1 table.png
+All other states are different.
+b) See Exemplary 19 Q1 minimized.png

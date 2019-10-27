@@ -1,0 +1,11 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+No, $NOT-ALL_{CFG}$ is not decidable. I will show that $ALL_{CFG}$ $\leq_M$ $NOT-ALL_{CFG}$:\\
+Let $G$ be an input CFG for the $ALL_{CFG}$ problem. Then $G \in ALL_{CFG}$ iff $G \notin NOT-ALL{CFG}$.\\
+Unfortunately, this is not a proper reduction because of the $\notin$, but I couldn't find the exact right way to do it.
+This can still be used as a proof that $NOT-ALL_{CFG}$ is undecidable, but it's just not a fully correct reduction.
+
+\end{document}

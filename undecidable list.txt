@@ -1,0 +1,11 @@
+I made a list of the undecidable problems that are in the book of Sipser:
+
+-EQ_CFG {<G,H> | G and H are CFG's and L(G) = L(H)} (proof is not given, but he states it being undecidable and proving is an exercise in chapter 5)
+-A_TM {<M,w> | M is a TM and M accepts w}
+-A_TM complement (not even turing-recognizable)
+-HALT_TM {<M,w> | M is a TM and M halts on input w}
+-E_TM {<M> | M is a TM and L(M) = empty language}
+-REGULAR_TM {<M> | M is a TM and L(M) is regular}
+-EQ_TM {<M1,M2> | M1 and M2 are TM's and L(M1) = L(M2)} (not even turing-recognizable)
+-E_LBA {<M> | M is a linear bounded automatan and L(M) = empty language}
+-ALL_CFG {<G> | G is a CFG and L(G) = alphabet* (so it accepts all words in its alphabet) }
