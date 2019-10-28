@@ -18,7 +18,10 @@ Case $vy$ contains only c's:\\
 Taking $i = 0$ will result in $uv^0xy^0z = uxz$ which will have less than $p + 1$ c's, thus at most $p$ c's.
 However, the number of c's has to be greater than the number of b's, but there are $p$ b's in $uxz$.\\
 Case $vy$ contains multiple different characters:\\
-Taking $i = 2$ will cause $uvvxyyz$ to be out of order, so it can't be in L.\\
+Since the a's and c's in $w$ are separated by $p$ b's, $vy$ must contain b and either a or c, but not both.
+Taking $i = 2$ will generate an extra b, so $uvvxyyz$ will have at least $p + 1$ b's.
+However, the number of a's or c's will still be $p + 1$ since $vy$ can't contain both characters.
+Thus the number of a's or the number of c's will not be greater than the number of b's.\\
 Since there are only 3 possible characters and $|vy| > 0$, these were all cases.
 Since each case lead to a contradiction, the assumption that L is context-free must have been false.
 Thus L is not context-free.
