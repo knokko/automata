@@ -9,4 +9,14 @@ I think the solution would be something like $f(w) = ww^R$ if $w \in A$ and ab i
 However, this doesn't feel like a proper solution at all. I hope someone knows a better way...\\
 I have seen the solution $f(w) = ww^R$ seen being proposed, but that would work only if A accepts every word in the alphabet.
 
+According to Erik during last year's examination review, this is the answer:
+
+We need $f: \sum* \to \sum*$ such that:
+1. f is computable
+2. $\forall w \in \sum*$: $w \in A \iff f(w) \in B$
+    Put f(w)= aba if $w \in A$, ab if $w \notin A$
+    
+f is computable because A is decidable, moreover:
+$f(w) \in B \iff f(w)$ is a palindrome $\iff w \in A$
+
 \end{document}
